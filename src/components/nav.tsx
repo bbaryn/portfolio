@@ -11,10 +11,10 @@ export function Nav() {
   const { t, lang, setLang } = useLang();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3">
-      <nav className="glass mx-auto flex max-w-5xl items-center justify-between rounded-full py-1.5 pr-1.5 pl-5">
+    <header className="rise fixed inset-x-0 top-0 z-50 px-4 pt-3">
+      <nav className="glass mx-auto flex bg-background/75 max-w-5xl items-center justify-between rounded-full py-1.5 pr-1.5 pl-5">
         <a href="#top" className="font-mono text-sm font-semibold tracking-tight">
-          BB<span className="text-violet-400">.</span>
+          BB<span className="text-violet-600">.</span>
         </a>
         <ul className="hidden gap-7 text-sm text-muted-foreground sm:flex">
           {links.map((id) => (
@@ -25,7 +25,7 @@ export function Nav() {
             </li>
           ))}
         </ul>
-        <div role="group" aria-label="Language" className="flex rounded-full border border-white/10 p-0.5">
+        <div role="group" aria-label="Language" className="flex rounded-full border border-border p-0.5">
           {(["en", "pl"] as const).map((l) => (
             <Button
               key={l}
@@ -33,7 +33,7 @@ export function Nav() {
               size="xs"
               aria-pressed={lang === l}
               onClick={() => setLang(l)}
-              className={cn("rounded-full px-2.5 font-mono uppercase", lang === l ? "bg-white/10 text-foreground" : "text-muted-foreground")}
+              className={cn("rounded-full px-2.5 font-mono uppercase", lang === l ? "bg-foreground text-background hover:bg-foreground/90 hover:text-background" : "text-muted-foreground")}
             >
               {l}
             </Button>

@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowDown, Download } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
 import type { CSSProperties } from "react";
-import { Magnetic, Ticker } from "@/components/fx";
+import { Magnetic } from "@/components/fx";
 import { useLang } from "@/components/providers";
 import { buttonVariants } from "@/components/ui/button";
 import { profile, ui } from "@/lib/content";
@@ -22,9 +22,9 @@ export function Hero() {
     >
       <div aria-hidden className="absolute inset-0 -z-10">
         <div className="bg-grid absolute inset-0" />
-        <div className="absolute -top-48 left-1/2 h-[480px] w-[min(760px,120vw)] -translate-x-1/2 animate-[glow_8s_ease-in-out_infinite] rounded-full bg-violet-600/25 blur-[120px]" />
-        <div className="absolute top-24 -left-24 size-80 animate-[float_14s_ease-in-out_infinite] rounded-full bg-cyan-500/15 blur-[100px]" />
-        <div className="absolute top-48 -right-24 size-80 animate-[float_18s_ease-in-out_infinite_reverse] rounded-full bg-indigo-500/20 blur-[100px]" />
+        <div className="absolute -top-48 left-1/2 h-[480px] w-[min(760px,120vw)] -translate-x-1/2 animate-[glow_8s_ease-in-out_infinite] rounded-full bg-violet-400/40 blur-[120px]" />
+        <div className="absolute top-24 -left-24 size-80 animate-[float_14s_ease-in-out_infinite] rounded-full bg-cyan-300/45 blur-[100px]" />
+        <div className="absolute top-48 -right-24 size-80 animate-[float_18s_ease-in-out_infinite_reverse] rounded-full bg-indigo-300/45 blur-[100px]" />
         <div className="hero-spot absolute inset-0" />
       </div>
 
@@ -40,7 +40,7 @@ export function Hero() {
         <h1 className="mt-6 text-5xl font-semibold tracking-tighter sm:text-7xl md:text-8xl">
           {profile.name.split(" ").map((word, i) => (
             <span key={word} className="mr-[0.22em] inline-block overflow-hidden pb-[0.1em] align-bottom">
-              <span className="rise inline-block bg-linear-to-b from-white to-white/55 bg-clip-text text-transparent" style={step(i + 1)}>
+              <span className="rise inline-block bg-linear-to-b from-zinc-950 to-zinc-600 bg-clip-text text-transparent" style={step(i + 1)}>
                 {word}
               </span>
             </span>
@@ -60,7 +60,7 @@ export function Hero() {
               href="#work"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "group h-11 rounded-full bg-white px-6 text-black shadow-[0_0_40px_-8px_rgb(167_139_250/0.8)] hover:bg-white hover:shadow-[0_0_60px_-4px_rgb(167_139_250/0.9)]",
+                "group h-11 rounded-full bg-zinc-950 px-6 text-white shadow-[0_10px_40px_-10px_rgb(124_58_237/0.7)] hover:bg-zinc-800 hover:shadow-[0_14px_50px_-8px_rgb(124_58_237/0.8)]",
               )}
             >
               {t(ui.hero.ctaWork)}
@@ -68,24 +68,11 @@ export function Hero() {
             </a>
           </Magnetic>
           <Magnetic>
-            <a href={profile.cv} download className={cn(buttonVariants({ variant: "outline", size: "lg" }), "glass h-11 rounded-full px-6")}>
-              <Download />
-              {t(ui.hero.ctaCv)}
+            <a href="#contact" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "glass h-11 rounded-full px-6")}>
+              <Mail />
+              {t(ui.hero.ctaContact)}
             </a>
           </Magnetic>
-        </div>
-
-        <div className="rise mt-16 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-4" style={step(6)}>
-          {ui.stats.map((s) => (
-            <div key={s.label.en}>
-              <p className="font-mono text-3xl font-semibold tracking-tight sm:text-4xl">
-                {s.prefix}
-                <Ticker value={s.value} />
-                {s.suffix}
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">{t(s.label)}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

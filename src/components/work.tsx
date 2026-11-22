@@ -16,10 +16,10 @@ export function Work() {
         {caseStudies.map((c, i) => {
           const featured = i === 0;
           return (
-            <Reveal key={c.title} className={cn(featured && "md:col-span-2")} delay={(i % 2) * 0.06}>
+            <Reveal key={c.title} className={cn(featured && "md:col-span-2")}>
               <GlowCard beam={featured} className="flex h-full flex-col p-6 sm:p-8">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <p className="text-sm text-violet-300">{t(c.client)}</p>
+                  <p className="text-sm text-violet-600">{t(c.client)}</p>
                   <p className="font-mono text-xs text-muted-foreground">{t(c.period)}</p>
                 </div>
                 <h3 className="mt-2 text-xl font-semibold tracking-tight sm:text-2xl">{c.title}</h3>
@@ -41,7 +41,7 @@ export function Work() {
                 <ul className="mt-auto flex flex-wrap gap-1.5 pt-6">
                   {c.tech.map((x) => (
                     <li key={x}>
-                      <Badge variant="outline" className="border-white/10 bg-white/[0.03] font-mono text-[11px] font-normal text-muted-foreground">
+                      <Badge variant="outline" className="border-zinc-200 bg-white/70 font-mono text-[11px] font-normal text-muted-foreground">
                         {x}
                       </Badge>
                     </li>

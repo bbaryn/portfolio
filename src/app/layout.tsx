@@ -17,13 +17,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Bartłomiej Baryń — Senior Full-Stack & Mobile Engineer",
   description:
-    "Senior Full-Stack & Mobile Engineer with 7+ years building web, mobile and desktop products with React, React Native, Node.js and AWS.",
+    "Senior Full-Stack & Mobile Engineer building web, mobile and desktop products with React, React Native, Node.js and AWS.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full overflow-x-clip">
+        <div aria-hidden className="page-bg pointer-events-none fixed inset-0 -z-10" />
         <Providers>{children}</Providers>
       </body>
     </html>

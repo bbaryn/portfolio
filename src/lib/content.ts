@@ -6,7 +6,6 @@ export const profile = {
   name: "Bartłomiej Baryń",
   email: "bartlomiej.baryn@gmail.com",
   linkedin: "https://www.linkedin.com/in/baryn-6337b7105",
-  cv: "/Bartlomiej_Baryn_CV.pdf",
 };
 
 export const ui = {
@@ -17,24 +16,24 @@ export const ui = {
     contact: { en: "Contact", pl: "Kontakt" },
   },
   hero: {
-    badge: { en: "Gliwice, Poland · 7+ years in production", pl: "Gliwice · 7+ lat komercyjnie" },
+    badge: { en: "Based in Gliwice, Poland", pl: "Gliwice, Polska" },
     role: "Senior Full-Stack & Mobile Engineer",
     summary: {
       en: "I design, build and maintain web, mobile and desktop products — React and React Native on the front, Node.js and AWS on the back. End-to-end features, direct client collaboration and software that holds up under real load.",
       pl: "Projektuję, buduję i utrzymuję produkty webowe, mobilne i desktopowe — React i React Native na froncie, Node.js i AWS na backendzie. Funkcje end-to-end, bezpośrednia współpraca z klientem i oprogramowanie, które wytrzymuje realne obciążenie.",
     },
     ctaWork: { en: "View projects", pl: "Zobacz projekty" },
-    ctaCv: { en: "Download CV", pl: "Pobierz CV (EN)" },
+    ctaContact: { en: "Get in touch", pl: "Kontakt" },
   },
-  stats: [
-    { value: 7, suffix: "+", label: { en: "years of commercial experience", pl: "lat doświadczenia komercyjnego" } },
-    { value: 25, prefix: "−", suffix: "%", label: { en: "fraudulent transactions", pl: "fraudulentnych transakcji" } },
-    { value: 75, suffix: "%+", label: { en: "code shared web ↔ mobile", pl: "kodu wspólnego web ↔ mobile" } },
-    { value: 60, prefix: "−", suffix: "%", label: { en: "manual invoice-processing time", pl: "czasu ręcznej obsługi faktur" } },
-  ],
   bento: {
     eyebrow: { en: "Overview", pl: "W skrócie" },
     title: { en: "Web, mobile and the backend in between.", pl: "Web, mobile i backend pomiędzy." },
+    webTitle: { en: "Web apps", pl: "Aplikacje webowe" },
+    webText: {
+      en: "Dashboards, SaaS and e-commerce in React & Next.js — fast, accessible and built for heavy data.",
+      pl: "Dashboardy, SaaS i e-commerce w React i Next.js — szybkie, dostępne i gotowe na duże ilości danych.",
+    },
+    webNote: { en: "Concept preview · analytics dashboard", pl: "Podgląd poglądowy · dashboard analityczny" },
     mobileTitle: { en: "Mobile apps", pl: "Aplikacje mobilne" },
     mobileText: {
       en: "React Native, Tamagui & Ionic — one TypeScript codebase for iOS, Android and the web.",

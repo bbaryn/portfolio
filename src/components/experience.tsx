@@ -21,12 +21,12 @@ export function Experience() {
         <motion.div
           aria-hidden
           style={{ scaleY: scrollYProgress }}
-          className="absolute top-0 left-0 z-10 h-full w-px origin-top bg-linear-to-b from-violet-400 via-cyan-300 to-violet-400/0"
+          className="absolute top-0 left-0 z-10 h-full w-px origin-top bg-linear-to-b from-violet-500 via-cyan-500 to-violet-500/0"
         />
-        <ol className="border-l border-white/10">
+        <ol className="border-l border-zinc-200">
           {experience.map((job) => (
             <li key={job.company} className="relative pb-14 pl-8 last:pb-0">
-              <span className="absolute top-1.5 -left-1.25 size-2.5 rounded-full bg-violet-400 shadow-[0_0_12px_2px_rgb(167_139_250/0.6)]" />
+              <span className="absolute top-1.5 -left-1.25 size-2.5 rounded-full bg-violet-500 shadow-[0_0_0_4px_rgb(139_92_246/0.18)]" />
               <Reveal>
                 <p className="font-mono text-xs text-muted-foreground">{t(job.period)}</p>
                 <h3 className="mt-1 text-lg font-semibold">
@@ -38,7 +38,7 @@ export function Experience() {
                       <GlowCard className="h-full rounded-xl p-4">
                         <p className="text-sm font-medium">
                           {p.name}
-                          {p.client && <span className="text-violet-300"> · {t(p.client)}</span>}
+                          {p.client && <span className="text-violet-600"> · {t(p.client)}</span>}
                         </p>
                         <p className="mt-1 text-sm text-muted-foreground">{t(p.text)}</p>
                       </GlowCard>
@@ -66,7 +66,7 @@ export function Experience() {
             </ul>
           </GlowCard>
         </Reveal>
-        <Reveal delay={0.05}>
+        <Reveal>
           <GlowCard className="h-full p-6">
             <h3 className="font-medium">{t(e.languages)}</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
@@ -76,7 +76,7 @@ export function Experience() {
             </ul>
           </GlowCard>
         </Reveal>
-        <Reveal delay={0.1}>
+        <Reveal>
           <GlowCard className="h-full p-6">
             <h3 className="font-medium">{t(e.beyond)}</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">

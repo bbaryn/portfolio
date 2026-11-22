@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Database, Layers, Server, Smartphone, Zap } from "lucide-react";
+import { Check, Database, Layers, Monitor, Server, Smartphone, Zap } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { GlowCard, Reveal, SectionHeading, TiltCard } from "@/components/fx";
@@ -18,7 +18,15 @@ export function Bento() {
   return (
     <section id="stack" className="mx-auto max-w-5xl px-4 py-24">
       <SectionHeading eyebrow={t(b.eyebrow)} title={t(b.title)} />
+      {/* md: web (2 cols) + mobile (2 rows) / architecture (2 cols) / stack (2 cols) + status */}
       <div className="grid gap-4 md:grid-cols-3">
+        <Reveal className="md:col-span-2">
+          <GlowCard className="flex h-full flex-col gap-6 p-6">
+            <CardHead icon={Monitor} title={t(b.webTitle)} text={t(b.webText)} />
+            <Browser />
+            <p className="text-center font-mono text-[11px] text-muted-foreground">{t(b.webNote)}</p>
+          </GlowCard>
+        </Reveal>
         <Reveal className="md:row-span-2">
           <TiltCard className="h-full">
             <GlowCard className="flex h-full flex-col gap-6 p-6">
@@ -28,19 +36,19 @@ export function Bento() {
             </GlowCard>
           </TiltCard>
         </Reveal>
-        <Reveal className="md:col-span-2" delay={0.05}>
+        <Reveal className="md:col-span-2">
           <GlowCard beam className="flex h-full flex-col gap-8 p-6">
             <CardHead icon={Server} title={t(b.archTitle)} text={t(b.archText)} />
             <Flow />
           </GlowCard>
         </Reveal>
-        <Reveal className="md:col-span-2" delay={0.1}>
+        <Reveal className="md:col-span-2">
           <GlowCard className="h-full p-6">
             <StackMatrix />
           </GlowCard>
         </Reveal>
-        <Reveal className="md:col-span-3" delay={0.15}>
-          <GlowCard className="p-6">
+        <Reveal>
+          <GlowCard className="h-full p-6">
             <LiveStatus />
           </GlowCard>
         </Reveal>
@@ -53,7 +61,7 @@ function CardHead({ icon: Icon, title, text }: { icon: typeof Server; title: str
   return (
     <div>
       <h3 className="flex items-center gap-2 font-medium">
-        <Icon className="size-4 text-violet-300" aria-hidden />
+        <Icon className="size-4 text-violet-600" aria-hidden />
         {title}
       </h3>
       {text && <p className="mt-1.5 text-sm text-muted-foreground">{text}</p>}
@@ -61,7 +69,61 @@ function CardHead({ icon: Icon, title, text }: { icon: typeof Server; title: str
   );
 }
 
-/* ---------- Card 1: phone mockup with an auto-cycling concept app ---------- */
+/* ---------- Web: browser mockup with a concept analytics dashboard ---------- */
+
+const chartLine = "M0 62 C30 58 45 40 75 44 S120 60 150 38 S210 20 240 26 S280 12 300 8";
+
+function Browser() {
+  const kpis = [
+    ["Sessions", "48.2k", "+12%"],
+    ["Avg. rank", "3.4", "↑2"],
+    ["LCP", "0.8s", "good"],
+  ];
+  return (
+    <div className="flex-1 overflow-hidden rounded-xl border border-zinc-200 bg-white text-zinc-900 shadow-[0_24px_60px_-28px_rgb(79_70_229/0.45)]">
+      <div className="flex items-center gap-1.5 border-b border-zinc-200 bg-zinc-50 px-3 py-2">
+        <span className="size-2.5 rounded-full bg-rose-400" />
+        <span className="size-2.5 rounded-full bg-amber-300" />
+        <span className="size-2.5 rounded-full bg-emerald-400" />
+        <span className="mx-auto w-1/2 truncate rounded-md bg-zinc-100 px-3 py-0.5 text-center font-mono text-[10px] text-zinc-500">
+          app.example.com/analytics
+        </span>
+      </div>
+      <div className="flex">
+        <div aria-hidden className="hidden w-28 shrink-0 flex-col gap-3 border-r border-zinc-100 p-3 sm:flex">
+          {[70, 85, 55, 75, 60].map((w, k) => (
+            <span key={k} className={cn("h-2 rounded-full", k === 0 ? "bg-violet-500" : "bg-zinc-200")} style={{ width: `${w}%` }} />
+          ))}
+        </div>
+        <div className="min-w-0 flex-1 space-y-3 p-3">
+          <div className="grid grid-cols-3 gap-2">
+            {kpis.map(([k, v, d]) => (
+              <div key={k} className="rounded-lg border border-zinc-100 bg-zinc-50 p-2">
+                <p className="truncate text-[10px] text-zinc-500">{k}</p>
+                <p className="font-mono text-sm font-semibold">
+                  {v} <span className="text-[10px] font-normal text-emerald-600">{d}</span>
+                </p>
+              </div>
+            ))}
+          </div>
+          {/* the line draws itself as the card scrolls into view (.draw in globals.css) */}
+          <svg viewBox="0 0 300 80" className="draw-scope w-full" aria-hidden>
+            <defs>
+              <linearGradient id="web-area" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path d={`${chartLine} L300 80 L0 80 Z`} fill="url(#web-area)" />
+            <path d={chartLine} pathLength={1} className="draw" fill="none" stroke="#06b6d4" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Mobile: phone mockup with an auto-cycling concept app ---------- */
 
 const screens = [
   { name: "Scan", node: <ScanScreen /> },
@@ -105,7 +167,7 @@ function Phone() {
             aria-label={s.name}
             aria-pressed={k === i}
             onClick={() => setI(k)}
-            className={cn("h-1.5 rounded-full transition-all", k === i ? "w-6 bg-violet-400" : "w-1.5 bg-white/25 hover:bg-white/50")}
+            className={cn("h-1.5 rounded-full transition-all", k === i ? "w-6 bg-violet-500" : "w-1.5 bg-zinc-300 hover:bg-zinc-400")}
           />
         ))}
       </div>
@@ -197,16 +259,16 @@ function Flow() {
         {nodes.map(({ icon: Icon, label, tech }, k) => (
           <div key={label} className="contents">
             {k > 0 && (
-              <div aria-hidden className="relative mt-6 h-px flex-1 overflow-hidden bg-white/10">
+              <div aria-hidden className="relative mt-6 h-px flex-1 overflow-hidden bg-zinc-200">
                 <span
-                  className="absolute inset-y-0 w-1/2 animate-[beam_2.4s_linear_infinite] bg-linear-to-r from-transparent via-cyan-300 to-transparent"
+                  className="absolute inset-y-0 w-1/2 animate-[beam_2.4s_linear_infinite] bg-linear-to-r from-transparent via-violet-500 to-transparent"
                   style={{ animationDelay: `${k * 0.4}s` }}
                 />
               </div>
             )}
             <div className="flex w-16 flex-col items-center gap-2 text-center sm:w-24">
-              <div className="grid size-12 place-items-center rounded-xl border border-white/10 bg-white/[0.04] shadow-[inset_0_1px_0_rgb(255_255_255/0.08),0_0_24px_-6px_rgb(139_92_246/0.5)]">
-                <Icon className="size-5 text-violet-300" aria-hidden />
+              <div className="grid size-12 place-items-center rounded-xl border border-zinc-200 bg-white shadow-[0_8px_24px_-10px_rgb(139_92_246/0.55)]">
+                <Icon className="size-5 text-violet-600" aria-hidden />
               </div>
               <span className="text-xs font-medium">{label}</span>
               <span className="-mt-1.5 font-mono text-[10px] leading-tight text-muted-foreground">{tech}</span>
@@ -214,8 +276,8 @@ function Flow() {
           </div>
         ))}
       </div>
-      <p className="truncate rounded-lg border border-white/5 bg-black/30 px-3 py-2 font-mono text-[11px] text-muted-foreground">
-        GET /api/invoices <span className="text-emerald-400">200</span> · cache hit · 12 ms
+      <p className="truncate rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2 font-mono text-[11px] text-muted-foreground">
+        GET /api/invoices <span className="text-emerald-600">200</span> · cache hit · 12 ms
       </p>
     </div>
   );
@@ -238,7 +300,7 @@ function StackMatrix() {
             size="xs"
             aria-pressed={active === f.id}
             onClick={() => setActive(f.id)}
-            className={cn("rounded-full px-2.5", active === f.id ? "bg-white/10 text-foreground" : "text-muted-foreground")}
+            className={cn("rounded-full px-2.5", active === f.id ? "bg-foreground text-background hover:bg-foreground/90 hover:text-background" : "text-muted-foreground")}
           >
             {f.label}
           </Button>
@@ -254,8 +316,8 @@ function StackMatrix() {
                 <Badge
                   variant="outline"
                   className={cn(
-                    "h-7 rounded-lg border-white/10 bg-white/[0.03] px-2.5 text-[13px] font-normal transition-all duration-300 hover:border-violet-400/50 hover:shadow-[0_0_16px_-4px_rgb(167_139_250/0.7)]",
-                    on && "border-violet-400/50 bg-violet-500/10 text-violet-100 shadow-[0_0_16px_-4px_rgb(167_139_250/0.7)]",
+                    "h-7 rounded-lg border-zinc-200 bg-white px-2.5 text-[13px] font-normal transition-all duration-300 hover:border-violet-400 hover:shadow-[0_0_16px_-6px_rgb(139_92_246/0.6)]",
+                    on && "border-violet-400 bg-violet-50 text-violet-700 shadow-[0_0_16px_-6px_rgb(139_92_246/0.6)]",
                     dim && "opacity-25",
                   )}
                 >
@@ -295,12 +357,12 @@ function LiveStatus() {
     <>
       <div className="flex items-center justify-between">
         <h3 className="font-medium">{t(b.liveTitle)}</h3>
-        <Badge variant="outline" className="border-white/10 font-mono text-[10px] text-muted-foreground">
+        <Badge variant="outline" className="font-mono text-[10px] text-muted-foreground">
           {t(b.demo)}
         </Badge>
       </div>
-      <dl className="mt-5 grid grid-cols-2 gap-6 lg:grid-cols-4">
-        <div>
+      <dl className="mt-5 grid grid-cols-2 gap-6">
+        <div className="col-span-2">
           <dt className="text-xs text-muted-foreground">Status</dt>
           <dd className="mt-2 flex items-center gap-2 text-sm font-medium">
             <span className="relative flex size-2">
@@ -315,7 +377,7 @@ function LiveStatus() {
           <dd className="mt-1 flex items-end gap-3">
             <span className="font-mono text-2xl font-semibold tabular-nums">{Math.round(lat[lat.length - 1])}ms</span>
             <svg viewBox="0 0 100 30" preserveAspectRatio="none" className="mb-1 h-6 flex-1" aria-hidden>
-              <polyline points={points} fill="none" stroke="rgb(34 211 238)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+              <polyline points={points} fill="none" stroke="#0891b2" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
             </svg>
           </dd>
         </div>

@@ -49,7 +49,7 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: #f6f7fb;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -60,7 +60,7 @@
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(0.5 0.02 264);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -84,7 +84,7 @@
 }
 
 .dark {
-  --background: #030712;
+  --background: #0e1424;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -95,11 +95,11 @@
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: oklch(0.8 0.02 264);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
+  --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.87 0 0);
@@ -138,27 +138,36 @@
 
 @layer components {
   .glass {
-    background: rgb(255 255 255 / 0.03);
-    border: 1px solid rgb(255 255 255 / 0.08);
+    background: rgb(255 255 255 / 0.72);
+    border: 1px solid rgb(15 23 42 / 0.08);
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.04), 0 12px 32px -16px rgb(15 23 42 / 0.12);
     backdrop-filter: blur(16px);
   }
 
   .text-gradient {
-    background: linear-gradient(90deg, #c4b5fd, #67e8f9 50%, #a5b4fc);
+    background: linear-gradient(90deg, #7c3aed, #4f46e5 50%, #0891b2);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .bg-grid {
-    background-image: radial-gradient(rgb(255 255 255 / 0.13) 1px, transparent 1px);
+    background-image: radial-gradient(rgb(15 23 42 / 0.13) 1px, transparent 1px);
     background-size: 24px 24px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 100%);
   }
 
+  /* soft colour wash behind the whole page (fixed layer = composited, no repaint on scroll) */
+  .page-bg {
+    background:
+      radial-gradient(60rem 40rem at 0% 15%, rgb(99 102 241 / 0.16), transparent 60%),
+      radial-gradient(50rem 40rem at 100% 55%, rgb(34 211 238 / 0.1), transparent 60%),
+      radial-gradient(60rem 40rem at 20% 100%, rgb(168 85 247 / 0.14), transparent 60%);
+  }
+
   /* cursor glow in the hero; --x/--y come from trackPointer */
   .hero-spot {
-    background: radial-gradient(600px circle at var(--x, 50%) var(--y, 30%), rgb(124 58 237 / 0.14), transparent 60%);
+    background: radial-gradient(600px circle at var(--x, 50%) var(--y, 30%), rgb(124 58 237 / 0.1), transparent 60%);
   }
 
   /* spotlight card: border (::before) and surface (::after) light up under the cursor */
@@ -179,13 +188,13 @@
     mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
   }
   .spotlight::before {
-    background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%), rgb(167 139 250 / 0.9), rgb(34 211 238 / 0.35) 40%, transparent 70%);
+    background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%), rgb(139 92 246 / 0.9), rgb(6 182 212 / 0.4) 40%, transparent 70%);
     opacity: 0;
     transition: opacity 0.3s;
   }
   .spotlight::after {
     inset: 0;
-    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgb(255 255 255 / 0.05), transparent 45%);
+    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgb(139 92 246 / 0.07), transparent 45%);
     opacity: 0;
     transition: opacity 0.3s;
   }
@@ -195,13 +204,13 @@
   }
 
   .border-beam {
-    background: conic-gradient(from var(--beam-angle), transparent 0 70%, #a78bfa 85%, #22d3ee 95%, transparent);
+    background: conic-gradient(from var(--beam-angle), transparent 0 70%, #8b5cf6 85%, #06b6d4 95%, transparent);
     animation: beam-spin 6s linear infinite;
   }
 
   /* hero entrance: pure CSS so it runs before hydration (better LCP) */
   .rise {
-    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards; /* not `both`: a filling animation would disable the nav's backdrop blur */
     animation-delay: calc(var(--i, 0) * 80ms);
   }
 }
@@ -215,7 +224,6 @@
   from {
     opacity: 0;
     transform: translateY(40%);
-    filter: blur(8px);
   }
 }
 @keyframes float {
@@ -244,6 +252,42 @@
   }
   50% {
     top: 85%;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(48px) scale(0.97);
+  }
+}
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+.draw {
+  stroke-dasharray: 1;
+}
+.draw-scope {
+  view-timeline: --draw;
+}
+
+/* Scroll-driven fade-ins: progress follows the scroll position, run by the browser off the main thread.
+   Browsers without support (and reduced-motion users) simply see the content. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    .draw {
+      animation: draw linear both;
+      animation-timeline: --draw;
+      animation-range: entry 40% cover 60%;
+    }
   }
 }
 
