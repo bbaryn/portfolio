@@ -4,7 +4,7 @@ import { motion, useScroll } from "motion/react";
 import { useRef } from "react";
 import { GlowCard, Reveal, SectionHeading } from "@/components/fx";
 import { useLang } from "@/components/providers";
-import { beyondCode, education, experience, languages, ui } from "@/lib/content";
+import { beyondCode, experience, languages, ui } from "@/lib/content";
 
 export function Experience() {
   const { t } = useLang();
@@ -21,12 +21,12 @@ export function Experience() {
         <motion.div
           aria-hidden
           style={{ scaleY: scrollYProgress }}
-          className="absolute top-0 left-0 z-10 h-full w-px origin-top bg-linear-to-b from-violet-500 via-cyan-500 to-violet-500/0"
+          className="absolute top-0 left-0 z-10 h-full w-px origin-top bg-linear-to-b from-brand via-brand-2 to-brand/0"
         />
         <ol className="border-l border-zinc-200">
           {experience.map((job) => (
             <li key={job.company} className="relative pb-14 pl-8 last:pb-0">
-              <span className="absolute top-1.5 -left-1.25 size-2.5 rounded-full bg-violet-500 shadow-[0_0_0_4px_rgb(139_92_246/0.18)]" />
+              <span className="absolute top-1.5 -left-1.25 size-2.5 rounded-full bg-brand shadow-[0_0_0_4px_rgb(var(--brand)/0.18)]" />
               <Reveal>
                 <p className="font-mono text-xs text-muted-foreground">{t(job.period)}</p>
                 <h3 className="mt-1 text-lg font-semibold">
@@ -38,7 +38,7 @@ export function Experience() {
                       <GlowCard className="h-full rounded-xl p-4">
                         <p className="text-sm font-medium">
                           {p.name}
-                          {p.client && <span className="text-violet-600"> · {t(p.client)}</span>}
+                          {p.client && <span className="text-brand-ink"> · {t(p.client)}</span>}
                         </p>
                         <p className="mt-1 text-sm text-muted-foreground">{t(p.text)}</p>
                       </GlowCard>
@@ -51,21 +51,7 @@ export function Experience() {
         </ol>
       </div>
 
-      <div className="mt-20 grid gap-4 md:grid-cols-3">
-        <Reveal>
-          <GlowCard className="h-full p-6">
-            <h3 className="font-medium">{t(e.education)}</h3>
-            <ul className="mt-4 space-y-4">
-              {education.map((ed) => (
-                <li key={ed.period}>
-                  <p className="font-mono text-xs text-muted-foreground">{ed.period}</p>
-                  <p className="mt-1 text-sm">{t(ed.title)}</p>
-                  <p className="text-sm text-muted-foreground">{t(ed.school)}</p>
-                </li>
-              ))}
-            </ul>
-          </GlowCard>
-        </Reveal>
+      <div className="mt-20 grid gap-4 md:grid-cols-2">
         <Reveal>
           <GlowCard className="h-full p-6">
             <h3 className="font-medium">{t(e.languages)}</h3>

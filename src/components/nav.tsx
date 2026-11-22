@@ -14,7 +14,7 @@ export function Nav() {
     <header className="rise fixed inset-x-0 top-0 z-50 px-4 pt-3">
       <nav className="glass mx-auto flex bg-background/75 max-w-5xl items-center justify-between rounded-full py-1.5 pr-1.5 pl-5">
         <a href="#top" className="font-mono text-sm font-semibold tracking-tight">
-          BB<span className="text-violet-600">.</span>
+          BB<span className="text-brand-ink">.</span>
         </a>
         <ul className="hidden gap-7 text-sm text-muted-foreground sm:flex">
           {links.map((id) => (

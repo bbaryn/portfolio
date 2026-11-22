@@ -18,7 +18,7 @@ export function Phone() {
 
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-4">
-      <div className="relative aspect-[9/19] w-[200px] rounded-[2.4rem] border border-white/15 bg-zinc-950 p-2 shadow-[0_30px_80px_-20px_rgb(124_58_237/0.5)]">
+      <div className="relative aspect-[9/19] w-[200px] rounded-[2.4rem] border border-white/15 bg-zinc-950 p-2 shadow-[0_30px_80px_-20px_rgb(var(--brand)/0.5)]">
         <div className="absolute top-3.5 left-1/2 z-10 h-4 w-16 -translate-x-1/2 rounded-full bg-black" />
         <div className="relative h-full overflow-hidden rounded-[1.9rem] bg-linear-to-b from-zinc-900 to-zinc-950 text-white">
           <AnimatePresence mode="wait" initial={false}>
@@ -42,7 +42,7 @@ export function Phone() {
             aria-label={s.name}
             aria-pressed={k === i}
             onClick={() => setI(k)}
-            className={cn("h-1.5 rounded-full transition-all", k === i ? "w-6 bg-violet-500" : "w-1.5 bg-zinc-300 hover:bg-zinc-400")}
+            className={cn("h-1.5 rounded-full transition-all", k === i ? "w-6 bg-brand" : "w-1.5 bg-zinc-300 hover:bg-zinc-400")}
           />
         ))}
       </div>

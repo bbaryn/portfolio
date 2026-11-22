@@ -12,7 +12,7 @@ const kpis = [
 
 export function Browser() {
   return (
-    <div className="flex-1 overflow-hidden rounded-xl border border-zinc-200 bg-white text-zinc-900 shadow-[0_24px_60px_-28px_rgb(79_70_229/0.45)]">
+    <div className="flex-1 overflow-hidden rounded-xl border border-zinc-200 bg-white text-zinc-900 shadow-[0_24px_60px_-28px_rgb(var(--brand)/0.45)]">
       <div className="flex items-center gap-1.5 border-b border-zinc-200 bg-zinc-50 px-3 py-2">
         <span className="size-2.5 rounded-full bg-rose-400" />
         <span className="size-2.5 rounded-full bg-amber-300" />
@@ -24,7 +24,7 @@ export function Browser() {
       <div className="flex">
         <div aria-hidden className="hidden w-28 shrink-0 flex-col gap-3 border-r border-zinc-100 p-3 sm:flex">
           {[70, 85, 55, 75, 60].map((w, k) => (
-            <span key={k} className={cn("h-2 rounded-full", k === 0 ? "bg-violet-500" : "bg-zinc-200")} style={{ width: `${w}%` }} />
+            <span key={k} className={cn("h-2 rounded-full", k === 0 ? "bg-brand" : "bg-zinc-200")} style={{ width: `${w}%` }} />
           ))}
         </div>
         <div className="min-w-0 flex-1 space-y-3 p-3">
@@ -39,15 +39,15 @@ export function Browser() {
             ))}
           </div>
           {/* the line draws itself as the card scrolls into view (.draw in globals.css) */}
-          <svg viewBox="0 0 300 80" className="draw-scope w-full" aria-hidden>
+          <svg viewBox="0 0 300 80" className="draw-scope w-full text-brand" aria-hidden>
             <defs>
               <linearGradient id="web-area" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.45" />
-                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
+                <stop offset="0%" stopColor="currentColor" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
               </linearGradient>
             </defs>
             <path d={`${chartLine} L300 80 L0 80 Z`} fill="url(#web-area)" />
-            <path d={chartLine} pathLength={1} className="draw" fill="none" stroke="#06b6d4" strokeWidth="2" strokeLinecap="round" />
+            <path d={chartLine} pathLength={1} className="draw stroke-brand-2" fill="none" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </div>
       </div>

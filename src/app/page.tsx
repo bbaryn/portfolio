@@ -18,7 +18,6 @@ const jsonLd = {
     url: siteUrl,
     sameAs: [profile.linkedin],
     address: { "@type": "PostalAddress", addressLocality: "Gliwice", addressCountry: "PL" },
-    alumniOf: { "@type": "CollegeOrUniversity", name: "Silesian University of Technology" },
     knowsLanguage: ["pl", "en"],
     knowsAbout: stack.flatMap((g) => g.items),
   },

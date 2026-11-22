@@ -15,13 +15,13 @@ function ScanScreen() {
   return (
     <div className="flex h-full flex-col p-4 pt-10">
       <ScreenTitle kicker="Invoices" title="Scan invoice" />
-      <div className="relative mt-4 flex-1 overflow-hidden rounded-xl border border-dashed border-violet-400/40 bg-white/[0.03] p-3">
+      <div className="relative mt-4 flex-1 overflow-hidden rounded-xl border border-dashed border-brand/40 bg-white/[0.03] p-3">
         {[70, 45, 85, 60, 40, 75, 55, 65].map((w, k) => (
           <div key={k} className="mb-2.5 h-1.5 rounded bg-white/15" style={{ width: `${w}%` }} />
         ))}
-        <div className="absolute inset-x-0 h-10 animate-[scan_2.4s_ease-in-out_infinite] bg-linear-to-b from-transparent via-cyan-400/40 to-transparent" />
+        <div className="absolute inset-x-0 h-10 animate-[scan_2.4s_ease-in-out_infinite] bg-linear-to-b from-transparent via-brand-2/40 to-transparent" />
       </div>
-      <div className="mt-3 rounded-lg bg-violet-500/20 py-2 text-center text-[11px] font-medium text-violet-200">AI · OCR running…</div>
+      <div className="mt-3 rounded-lg bg-brand/20 py-2 text-center text-[11px] font-medium text-brand">AI · OCR running…</div>
     </div>
   );
 }
@@ -59,7 +59,7 @@ function InsightsScreen() {
       <p className="mt-3 font-mono text-2xl font-semibold text-emerald-300">−60%</p>
       <div className="mt-auto flex h-32 items-end gap-2">
         {[90, 78, 64, 52, 41, 36].map((h, k) => (
-          <div key={k} className="flex-1 rounded-t bg-linear-to-t from-violet-500/40 to-cyan-400/70" style={{ height: `${h}%` }} />
+          <div key={k} className="flex-1 rounded-t bg-linear-to-t from-brand/40 to-brand-2/70" style={{ height: `${h}%` }} />
         ))}
       </div>
       <div className="mt-2 flex justify-between text-[9px] text-white/40">

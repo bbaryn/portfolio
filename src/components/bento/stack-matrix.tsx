@@ -43,8 +43,8 @@ export function StackMatrix() {
                 <Badge
                   variant="outline"
                   className={cn(
-                    "h-7 rounded-lg border-zinc-200 bg-white px-2.5 text-[13px] font-normal transition-all duration-300 hover:border-violet-400 hover:shadow-[0_0_16px_-6px_rgb(139_92_246/0.6)]",
-                    on && "border-violet-400 bg-violet-50 text-violet-700 shadow-[0_0_16px_-6px_rgb(139_92_246/0.6)]",
+                    "h-7 rounded-lg border-zinc-200 bg-white px-2.5 text-[13px] font-normal transition-all duration-300 hover:border-brand/60 hover:shadow-[0_0_16px_-6px_rgb(var(--brand)/0.6)]",
+                    on && "border-brand/60 bg-brand/10 text-brand-ink shadow-[0_0_16px_-6px_rgb(var(--brand)/0.6)]",
                     dim && "opacity-25",
                   )}
                 >

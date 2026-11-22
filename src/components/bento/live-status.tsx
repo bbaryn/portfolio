@@ -51,7 +51,7 @@ export function LiveStatus() {
           <dd className="mt-1 flex items-end gap-3">
             <span className="font-mono text-2xl font-semibold tabular-nums">{Math.round(lat[lat.length - 1])}ms</span>
             <svg viewBox="0 0 100 30" preserveAspectRatio="none" className="mb-1 h-6 flex-1" aria-hidden>
-              <polyline points={points} fill="none" stroke="#0891b2" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+              <polyline points={points} fill="none" className="stroke-brand-2" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
             </svg>
           </dd>
         </div>

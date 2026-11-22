@@ -1,7 +1,7 @@
 "use client";
 
 import { Monitor, Server, Smartphone } from "lucide-react";
-import { GlowCard, Reveal, SectionHeading, TiltCard } from "@/components/fx";
+import { GlowCard, Reveal, SectionHeading } from "@/components/fx";
 import { useLang } from "@/components/providers";
 import { ui } from "@/lib/content";
 import { Browser } from "./browser";
@@ -29,13 +29,11 @@ export function Bento() {
           </GlowCard>
         </Reveal>
         <Reveal className="md:row-span-2">
-          <TiltCard className="h-full">
-            <GlowCard className="flex h-full flex-col gap-6 p-6">
-              <CardHead icon={Smartphone} title={t(b.mobileTitle)} text={t(b.mobileText)} />
-              <Phone />
-              <p className="text-center font-mono text-[11px] text-muted-foreground">{t(b.mobileNote)}</p>
-            </GlowCard>
-          </TiltCard>
+          <GlowCard className="flex h-full flex-col gap-6 p-6">
+            <CardHead icon={Smartphone} title={t(b.mobileTitle)} text={t(b.mobileText)} />
+            <Phone />
+            <p className="text-center font-mono text-[11px] text-muted-foreground">{t(b.mobileNote)}</p>
+          </GlowCard>
         </Reveal>
         <Reveal className="md:col-span-2">
           <GlowCard beam className="flex h-full flex-col gap-8 p-6">

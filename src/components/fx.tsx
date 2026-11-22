@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
+import { motion, useReducedMotion, useSpring } from "motion/react";
 import type { ComponentProps, PointerEvent, ReactNode } from "react";
 import { cn, trackPointer } from "@/lib/utils";
 
@@ -13,33 +13,6 @@ export function GlowCard({ className, children, beam, ...props }: ComponentProps
       {beam && <span aria-hidden className="border-beam" />}
       {children}
     </div>
-  );
-}
-
-/** Tilts its content in 3D towards the mouse (mouse only, off for reduced motion). */
-export function TiltCard({ className, children }: { className?: string; children: ReactNode }) {
-  const reduce = useReducedMotion();
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [7, -7]), spring);
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-7, 7]), spring);
-
-  const onMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (reduce || e.pointerType !== "mouse") return;
-    const r = e.currentTarget.getBoundingClientRect();
-    x.set((e.clientX - r.left) / r.width - 0.5);
-    y.set((e.clientY - r.top) / r.height - 0.5);
-  };
-
-  return (
-    <motion.div
-      onPointerMove={onMove}
-      onPointerLeave={() => (x.set(0), y.set(0))}
-      style={{ rotateX, rotateY, transformPerspective: 1000 }}
-      className={className}
-    >
-      {children}
-    </motion.div>
   );
 }
 
@@ -71,7 +44,7 @@ export function Reveal({ children, className }: { children: ReactNode; className
 export function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <Reveal className="mb-10 max-w-2xl">
-      <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">{eyebrow}</p>
+      <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-ink">{eyebrow}</p>
       <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h2>
     </Reveal>
   );

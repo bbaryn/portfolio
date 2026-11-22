@@ -63,7 +63,6 @@ export const ui = {
   experience: {
     eyebrow: { en: "Experience", pl: "Doświadczenie" },
     title: { en: "Teams and products I work with.", pl: "Zespoły i produkty, które współtworzę." },
-    education: { en: "Education", pl: "Wykształcenie" },
     languages: { en: "Languages", pl: "Języki" },
     beyond: { en: "Beyond code", pl: "Poza kodem" },
   },
@@ -283,25 +282,6 @@ export const experience: {
         },
       },
     ],
-  },
-];
-
-export const education: { period: string; title: T; school: T }[] = [
-  {
-    period: "2014 – 2015",
-    title: {
-      en: "MSc, Biomedical Engineering (Biomechanics & Medical Equipment)",
-      pl: "Studia magisterskie, Inżynieria Biomedyczna (Biomechanika i aparatura medyczna)",
-    },
-    school: { en: "Silesian University of Technology", pl: "Politechnika Śląska" },
-  },
-  {
-    period: "2010 – 2014",
-    title: {
-      en: "BSc, Biomedical Engineering (Medical Device Engineering)",
-      pl: "Studia inżynierskie, Inżynieria Biomedyczna (Inżynieria urządzeń medycznych)",
-    },
-    school: { en: "Silesian University of Technology", pl: "Politechnika Śląska" },
   },
 ];
 

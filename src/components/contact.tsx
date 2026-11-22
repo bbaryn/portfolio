@@ -16,7 +16,7 @@ export function Contact() {
     <section id="contact" className="mx-auto max-w-5xl px-4 pt-24 pb-10">
       <Reveal>
         <GlowCard beam className="px-6 py-16 text-center sm:px-16 sm:py-20">
-          <div aria-hidden className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(60%_60%_at_50%_0%,rgb(124_58_237/0.14),transparent)]" />
+          <div aria-hidden className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(60%_60%_at_50%_0%,rgb(var(--brand)/0.14),transparent)]" />
           <h2 className="relative text-3xl font-semibold tracking-tight text-balance sm:text-5xl">{t(ui.contact.title)}</h2>
           <p className="relative mt-4 text-muted-foreground">{t(ui.contact.text)}</p>
           <div className="relative mt-10 flex flex-wrap justify-center gap-3">
