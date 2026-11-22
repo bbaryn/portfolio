@@ -53,10 +53,12 @@
 
 :root {
   /* Accent colours, as RGB triplets so alpha works anywhere: rgb(var(--brand) / 0.5).
-     Change these three lines to recolour the whole site. */
-  --brand: 20 184 166; /* teal-500: fills, glows, beams */
-  --brand-ink: 15 118 110; /* teal-700: accent text and icons (AA contrast on white) */
-  --brand-2: 6 182 212; /* cyan-500: secondary accent */
+     Change these lines (plus --muted-foreground below) to recolour the whole site.
+     Teal: --brand: 20 184 166; --brand-ink: 15 118 110; --brand-2: 6 182 212; --background: #f6f7fb; --muted-foreground: oklch(0.5 0.02 264);
+     Mono: --brand: 82 82 91; --brand-ink: 24 24 27; --brand-2: 161 161 170; --background: #fafafa; --muted-foreground: oklch(0.5 0 0); */
+  --brand: 37 99 235; /* blue-600: fills, glows, beams */
+  --brand-ink: 29 78 216; /* blue-700: accent text and icons (AA contrast on white) */
+  --brand-2: 56 189 248; /* sky-400: secondary accent */
   --background: #f6f7fb;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
