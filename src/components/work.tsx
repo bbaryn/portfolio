@@ -41,7 +41,10 @@ export function Work() {
                 <ul className="mt-auto flex flex-wrap gap-1.5 pt-6">
                   {c.tech.map((x) => (
                     <li key={x}>
-                      <Badge variant="outline" className="border-zinc-200 bg-white/70 font-mono text-[11px] font-normal text-muted-foreground">
+                      <Badge
+                        variant="outline"
+                        className="border-zinc-200 bg-white/70 font-mono text-[11px] font-normal text-muted-foreground"
+                      >
                         {x}
                       </Badge>
                     </li>

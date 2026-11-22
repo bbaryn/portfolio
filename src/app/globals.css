@@ -155,7 +155,9 @@
   .glass {
     background: rgb(255 255 255 / 0.72);
     border: 1px solid rgb(15 23 42 / 0.08);
-    box-shadow: 0 1px 2px rgb(15 23 42 / 0.04), 0 12px 32px -16px rgb(15 23 42 / 0.12);
+    box-shadow:
+      0 1px 2px rgb(15 23 42 / 0.04),
+      0 12px 32px -16px rgb(15 23 42 / 0.12);
     backdrop-filter: blur(16px);
   }
 
@@ -198,12 +200,21 @@
   .border-beam {
     inset: -1px;
     padding: 1px;
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
-    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
   }
   .spotlight::before {
-    background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%), rgb(var(--brand) / 0.9), rgb(var(--brand-2) / 0.4) 40%, transparent 70%);
+    background: radial-gradient(
+      260px circle at var(--x, 50%) var(--y, 50%),
+      rgb(var(--brand) / 0.9),
+      rgb(var(--brand-2) / 0.4) 40%,
+      transparent 70%
+    );
     opacity: 0;
     transition: opacity 0.3s;
   }

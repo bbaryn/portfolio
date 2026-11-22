@@ -40,7 +40,10 @@ export function Hero() {
         <h1 className="mt-6 text-5xl font-semibold tracking-tighter sm:text-7xl md:text-8xl">
           {profile.name.split(" ").map((word, i) => (
             <span key={word} className="mr-[0.22em] inline-block overflow-hidden pb-[0.1em] align-bottom">
-              <span className="rise inline-block bg-linear-to-b from-zinc-950 to-zinc-600 bg-clip-text text-transparent" style={step(i + 1)}>
+              <span
+                className="rise inline-block bg-linear-to-b from-zinc-950 to-zinc-600 bg-clip-text text-transparent"
+                style={step(i + 1)}
+              >
                 {word}
               </span>
             </span>

@@ -79,9 +79,17 @@ export const stack: { id: string; label: T; items: string[] }[] = [
   { id: "frontend", label: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "Redux", "Tailwind CSS", "HTML5", "CSS3"] },
   { id: "mobile", label: "Mobile", items: ["React Native", "Tamagui", "Ionic"] },
   { id: "backend", label: "Backend", items: ["Node.js", "NestJS", "Express.js", "Python", "FastAPI", "Django", "Temporal", "REST APIs"] },
-  { id: "data", label: { en: "Databases", pl: "Bazy danych" }, items: ["PostgreSQL", "MySQL", "MongoDB", "DynamoDB", "InfluxDB", "Redis", "Drizzle ORM"] },
+  {
+    id: "data",
+    label: { en: "Databases", pl: "Bazy danych" },
+    items: ["PostgreSQL", "MySQL", "MongoDB", "DynamoDB", "InfluxDB", "Redis", "Drizzle ORM"],
+  },
   { id: "devops", label: { en: "Cloud & DevOps", pl: "Chmura i DevOps" }, items: ["AWS", "AWS Lambda", "Docker", "CI/CD", "Vercel"] },
-  { id: "tools", label: { en: "Desktop & tools", pl: "Desktop i narzędzia" }, items: ["Electron", "Git", "Jest", "Claude Code", "Cursor AI", "GitHub Copilot"] },
+  {
+    id: "tools",
+    label: { en: "Desktop & tools", pl: "Desktop i narzędzia" },
+    items: ["Electron", "Git", "Jest", "Claude Code", "Cursor AI", "GitHub Copilot"],
+  },
 ];
 
 export const caseStudies: {
@@ -205,12 +213,18 @@ export const experience: {
       {
         name: "AI-Powered Accounting Platform",
         client: { en: "Swedish fintech", pl: "Szwedzki fintech" },
-        text: { en: "Web & mobile app with AI invoice processing and OCR.", pl: "Aplikacja web i mobile z przetwarzaniem faktur przez AI i OCR." },
+        text: {
+          en: "Web & mobile app with AI invoice processing and OCR.",
+          pl: "Aplikacja web i mobile z przetwarzaniem faktur przez AI i OCR.",
+        },
       },
       {
         name: "Mobile Medical Application",
         client: "Vidal MMI",
-        text: { en: "Accessible healthcare app with reliable offline sync.", pl: "Dostępna aplikacja medyczna z niezawodną synchronizacją offline." },
+        text: {
+          en: "Accessible healthcare app with reliable offline sync.",
+          pl: "Dostępna aplikacja medyczna z niezawodną synchronizacją offline.",
+        },
       },
       {
         name: "Real-Time Translation Platform",
@@ -264,7 +278,10 @@ export const experience: {
       {
         name: "High-Performance E-Commerce",
         client: "Ursa Major",
-        text: { en: "Fast-loading storefront focused on frontend performance.", pl: "Szybki sklep internetowy z naciskiem na wydajność frontendu." },
+        text: {
+          en: "Fast-loading storefront focused on frontend performance.",
+          pl: "Szybki sklep internetowy z naciskiem na wydajność frontendu.",
+        },
       },
     ],
   },

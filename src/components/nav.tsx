@@ -33,7 +33,10 @@ export function Nav() {
               size="xs"
               aria-pressed={lang === l}
               onClick={() => setLang(l)}
-              className={cn("rounded-full px-2.5 font-mono uppercase", lang === l ? "bg-foreground text-background hover:bg-foreground/90 hover:text-background" : "text-muted-foreground")}
+              className={cn(
+                "rounded-full px-2.5 font-mono uppercase",
+                lang === l ? "bg-foreground text-background hover:bg-foreground/90 hover:text-background" : "text-muted-foreground",
+              )}
             >
               {l}
             </Button>

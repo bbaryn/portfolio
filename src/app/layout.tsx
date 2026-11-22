@@ -18,7 +18,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Bartłomiej Baryń — Senior Full-Stack & Mobile Engineer", // 54 chars, keep < 60
-  description: // 157 chars, keep ~155–160
+  // 157 chars, keep ~155–160
+  description:
     "Senior Full-Stack & Mobile Engineer from Gliwice, Poland. I build web, mobile and cloud apps with React, React Native, Next.js, Node.js and AWS — end to end.",
   alternates: { canonical: "/" },
 };

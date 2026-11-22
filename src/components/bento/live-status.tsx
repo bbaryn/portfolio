@@ -22,8 +22,17 @@ export function LiveStatus() {
     return () => clearInterval(id);
   }, []);
 
-  const fmt = new Intl.DateTimeFormat(lang === "pl" ? "pl-PL" : "en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit", timeZone: "Europe/Warsaw" });
-  const time = useSyncExternalStore(tick, () => fmt.format(Date.now()), () => "--:--:--");
+  const fmt = new Intl.DateTimeFormat(lang === "pl" ? "pl-PL" : "en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    timeZone: "Europe/Warsaw",
+  });
+  const time = useSyncExternalStore(
+    tick,
+    () => fmt.format(Date.now()),
+    () => "--:--:--",
+  );
 
   const points = lat.map((v, k) => `${(k / (lat.length - 1)) * 100},${30 - ((v - 6) / 12) * 30}`).join(" ");
 

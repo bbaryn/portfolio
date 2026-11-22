@@ -27,7 +27,10 @@ export function StackMatrix() {
             size="xs"
             aria-pressed={active === f.id}
             onClick={() => setActive(f.id)}
-            className={cn("rounded-full px-2.5", active === f.id ? "bg-foreground text-background hover:bg-foreground/90 hover:text-background" : "text-muted-foreground")}
+            className={cn(
+              "rounded-full px-2.5",
+              active === f.id ? "bg-foreground text-background hover:bg-foreground/90 hover:text-background" : "text-muted-foreground",
+            )}
           >
             {f.label}
           </Button>
