@@ -127,6 +127,11 @@
   html {
     @apply font-sans;
   }
+  /* Tailwind v4 gives buttons `cursor: default`; restore the pointer for every clickable button */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }
 /* ---------- Portfolio effects ---------- */
 

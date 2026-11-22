@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "@/components/providers";
+import { siteUrl } from "@/lib/site";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
@@ -15,9 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bartłomiej Baryń — Senior Full-Stack & Mobile Engineer",
-  description:
-    "Senior Full-Stack & Mobile Engineer building web, mobile and desktop products with React, React Native, Node.js and AWS.",
+  metadataBase: new URL(siteUrl),
+  title: "Bartłomiej Baryń — Senior Full-Stack & Mobile Engineer", // 54 chars, keep < 60
+  description: // 157 chars, keep ~155–160
+    "Senior Full-Stack & Mobile Engineer from Gliwice, Poland. I build web, mobile and cloud apps with React, React Native, Next.js, Node.js and AWS — end to end.",
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

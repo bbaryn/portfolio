@@ -45,11 +45,11 @@ export function Hero() {
               </span>
             </span>
           ))}
+          {/* role sits inside the h1 so the main heading carries the searched-for keywords */}
+          <span className="rise text-gradient mt-3 block text-xl font-medium tracking-tight sm:text-3xl" style={step(3)}>
+            {ui.hero.role}
+          </span>
         </h1>
-
-        <p className="rise text-gradient mt-3 text-xl font-medium tracking-tight sm:text-3xl" style={step(3)}>
-          {ui.hero.role}
-        </p>
         <p className="rise mt-6 max-w-2xl text-base leading-relaxed text-pretty text-muted-foreground sm:text-lg" style={step(4)}>
           {t(ui.hero.summary)}
         </p>
