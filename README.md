@@ -22,7 +22,6 @@ pnpm dev       # http://localhost:3000
 | ---------------- | ------------------------------------------------------ |
 | `pnpm dev`       | Dev server                                             |
 | `pnpm build`     | Static export to `out/`                                |
-| `pnpm start`     | Serve `out/` on port 3000 (needs `python3`)            |
 | `pnpm lint`      | ESLint (Next rules + full jsx-a11y)                    |
 | `pnpm format`    | Prettier on the whole repo                             |
 | `pnpm typecheck` | Generate Next route types, then `tsc --noEmit`         |
@@ -58,4 +57,4 @@ Deployed to **GitHub Pages** by `.github/workflows/ci.yml` on every push to `mai
 
 One-time setup: repo **Settings → Pages → Source: GitHub Actions**.
 
-The site is a static export (`output: "export"`). The workflow sets `PAGES_BASE_PATH` (the `/portfolio` URL prefix) and `NEXT_PUBLIC_SITE_URL` (used by the sitemap, robots.txt, canonical URL and JSON-LD) from the Pages configuration, so a custom domain or a renamed repo needs no code change.
+The site is a static export (`output: "export"`). The workflow derives `PAGES_BASE_PATH` and `NEXT_PUBLIC_SITE_URL` (used by the sitemap, robots.txt, canonical URL and JSON-LD) from the repository name: the `<owner>.github.io` repo is served from `https://<owner>.github.io/`, any other repo from `https://<owner>.github.io/<repo>/`. With a custom domain, use an empty base path.
