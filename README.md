@@ -13,20 +13,20 @@ Personal portfolio of a Senior Full-Stack & Mobile Engineer: a single-page site 
 
 ```bash
 pnpm install   # also installs the git hooks (husky)
-pnpm dev       # http://localhost:3000
+pnpm dev       # http://localhost:3011
 ```
 
 ## Scripts
 
-| Command          | What it does                                           |
-| ---------------- | ------------------------------------------------------ |
-| `pnpm dev`       | Dev server                                             |
-| `pnpm build`     | Static export to `out/`                                |
-| `pnpm lint`      | ESLint (Next rules + full jsx-a11y)                    |
-| `pnpm format`    | Prettier on the whole repo                             |
-| `pnpm typecheck` | Generate Next route types, then `tsc --noEmit`         |
-| `pnpm test`      | Unit/component tests (Vitest + Testing Library)        |
-| `pnpm test:e2e`  | E2E tests (Playwright; builds and serves on port 3100) |
+| Command          | What it does                                                      |
+| ---------------- | ----------------------------------------------------------------- |
+| `pnpm dev`       | Dev server                                                        |
+| `pnpm build`     | Static export to `out/`                                           |
+| `pnpm lint`      | ESLint (Next rules + full jsx-a11y)                               |
+| `pnpm format`    | Prettier on the whole repo                                        |
+| `pnpm typecheck` | Generate Next route types, then `tsc --noEmit`                    |
+| `pnpm test`      | Unit/component tests (Vitest + Testing Library)                   |
+| `pnpm test:e2e`  | E2E tests (Playwright on `next dev`; reuses a running `pnpm dev`) |
 
 ## Git hooks
 
