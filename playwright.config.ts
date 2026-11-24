@@ -11,7 +11,7 @@ export default defineConfig({
     channel: "chrome",
   },
   webServer: {
-    command: `pnpm build && pnpm start -p ${port}`,
+    command: `pnpm build && python3 -m http.server ${port} -d out`, // static export: serve out/ like GitHub Pages does
     url: `http://localhost:${port}`,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,

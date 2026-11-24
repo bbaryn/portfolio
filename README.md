@@ -21,8 +21,8 @@ pnpm dev       # http://localhost:3000
 | Command          | What it does                                           |
 | ---------------- | ------------------------------------------------------ |
 | `pnpm dev`       | Dev server                                             |
-| `pnpm build`     | Production build                                       |
-| `pnpm start`     | Serve the production build                             |
+| `pnpm build`     | Static export to `out/`                                |
+| `pnpm start`     | Serve `out/` on port 3000 (needs `python3`)            |
 | `pnpm lint`      | ESLint (Next rules + full jsx-a11y)                    |
 | `pnpm format`    | Prettier on the whole repo                             |
 | `pnpm typecheck` | Generate Next route types, then `tsc --noEmit`         |
@@ -54,4 +54,8 @@ Playwright uses the installed **Google Chrome** (`channel: "chrome"`). Without C
 
 ## Deploy
 
-Built for **Vercel**. Set `NEXT_PUBLIC_SITE_URL` to your domain (used by the sitemap, robots.txt, canonical URL and JSON-LD); on Vercel the production URL is used automatically when it is not set.
+Deployed to **GitHub Pages** by `.github/workflows/ci.yml` on every push to `main`: lint → typecheck → unit tests → static build → deploy.
+
+One-time setup: repo **Settings → Pages → Source: GitHub Actions**.
+
+The site is a static export (`output: "export"`). The workflow sets `PAGES_BASE_PATH` (the `/portfolio` URL prefix) and `NEXT_PUBLIC_SITE_URL` (used by the sitemap, robots.txt, canonical URL and JSON-LD) from the Pages configuration, so a custom domain or a renamed repo needs no code change.
