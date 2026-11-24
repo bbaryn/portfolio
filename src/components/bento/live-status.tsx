@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { useLang } from "@/components/providers";
 import { Badge } from "@/components/ui/badge";
 import { ui } from "@/lib/content";
@@ -22,12 +22,16 @@ export function LiveStatus() {
     return () => clearInterval(id);
   }, []);
 
-  const fmt = new Intl.DateTimeFormat(lang === "pl" ? "pl-PL" : "en-GB", {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    timeZone: "Europe/Warsaw",
-  });
+  const fmt = useMemo(
+    () =>
+      new Intl.DateTimeFormat(lang === "pl" ? "pl-PL" : "en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        timeZone: "Europe/Warsaw",
+      }),
+    [lang],
+  );
   const time = useSyncExternalStore(
     tick,
     () => fmt.format(Date.now()),

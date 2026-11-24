@@ -1,5 +1,3 @@
 // Absolute site URL for the sitemap, robots.txt, canonical and JSON-LD.
-// Set NEXT_PUBLIC_SITE_URL to your domain; on Vercel the production URL is picked up automatically.
-export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3011");
+// CI sets NEXT_PUBLIC_SITE_URL for GitHub Pages; the fallback is the local dev server.
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3011";

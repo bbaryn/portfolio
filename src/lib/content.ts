@@ -206,7 +206,7 @@ export const experience: {
     ],
   },
   {
-    period: { en: "Feb 2024 – Sep 2026", pl: "lut 2024 – wrz 2026" },
+    period: { en: "Feb 2024 – Oct 2026", pl: "lut 2024 – paź 2026" },
     company: "Freelance",
     type: { en: "Independent B2B contractor · multiple clients", pl: "Własna działalność B2B · wielu klientów" },
     projects: [

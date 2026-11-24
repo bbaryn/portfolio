@@ -49,6 +49,8 @@ jobs:
         run: |
           if [ "$REPO" = "$OWNER.github.io" ]; then base=""; else base="/$REPO"; fi
           PAGES_BASE_PATH="$base" NEXT_PUBLIC_SITE_URL="https://$OWNER.github.io$base" pnpm build
+          # guard: CSS/JS links must carry the base path, otherwise Pages serves an unstyled page
+          grep -q "href=\"$base/_next/" out/index.html
         env:
           REPO: ${{ github.event.repository.name }}
           OWNER: ${{ github.repository_owner }}

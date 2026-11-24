@@ -16,9 +16,9 @@ export function Nav() {
         <a href="#top" className="font-mono text-sm font-semibold tracking-tight">
           BB<span className="text-brand-ink">.</span>
         </a>
-        <ul className="hidden gap-7 text-sm text-muted-foreground sm:flex">
+        <ul className="flex gap-4 text-sm text-muted-foreground sm:gap-7">
           {links.map((id) => (
-            <li key={id}>
+            <li key={id} className={id === "stack" || id === "experience" ? "hidden sm:list-item" : undefined}>
               <a href={`#${id}`} className="transition-colors hover:text-foreground">
                 {t(ui.nav[id])}
               </a>
